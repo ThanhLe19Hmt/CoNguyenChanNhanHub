@@ -375,7 +375,7 @@ llocal Window = Library:CreateWindow({
     AccentColor = Color3.fromRGB(220, 220, 225),  -- Trắng nhạt
     SideBarWidth = 120,
     SphereText = false,
-    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/main/Dinh-Tien-Du.jpg",  -- Ảnh hồ điệp
+    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/Dinh-Tien-Du.jpg",  -- Ảnh hồ điệp
     SphereIconSize = 38,
     Map = "RockFruit"
 })
@@ -2794,7 +2794,7 @@ local Window = Library:CreateWindow({
     AccentColor = Color3.fromRGB(220, 220, 225),  -- Trắng nhạt
     SideBarWidth = 120,
     SphereText = false,
-    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/main/Dinh-Tien-Du.jpg",  -- Ảnh hồ điệp
+    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/Dinh-Tien-Du.jpg",  -- Ảnh hồ điệp
     SphereIconSize = 38,
     Map = "RockFruit"
 })
