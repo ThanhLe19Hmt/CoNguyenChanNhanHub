@@ -357,7 +357,7 @@ LocalPlayer.Idled:Connect(function()
 	VirtualUser:CaptureController()
 	VirtualUser:ClickButton2(Vector2.new())
 end)
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/GUI.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/znesr99/gui/refs/heads/main/MarvenRizLib.lua"))()
 local MySaveManager = Library.SaveManager
 -- ===== DEBUG START =====
 task.spawn(function()
@@ -368,14 +368,16 @@ task.spawn(function()
 	end
 end)
 -- ===== DEBUG END =====
-llocal Window = Library:CreateWindow({
+local Window = Library:CreateWindow({
     Title = "MarvenRiz Hub",
     Subtitle = "Map : Rock Fruit",
-    Size = UDim2.fromOffset(600, 450),  -- Đổi từ 500x370 → 600x450
-    AccentColor = Color3.fromRGB(220, 220, 225),  -- Trắng nhạt
+    Size = UDim2.fromOffset(500, 370),
+    AccentColor = Color3.fromRGB(50, 150, 255),
     SideBarWidth = 120,
+    Logo = "rbxassetid://87526284179554",
+    LogoSize = 32,
     SphereText = false,
-    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/Dinh-Tien-Du.jpg",  -- Ảnh hồ điệp
+    SphereImage = "rbxassetid://87526284179554",
     SphereIconSize = 38,
     Map = "RockFruit"
 })
@@ -2607,6 +2609,7 @@ task.spawn(function()
 			local char = LocalPlayer.Character
 			local hrp = char and char:FindFirstChild("HumanoidRootPart")
 			if hrp then
+				-- Cancel dash: giữ velocity chỉ theo trục Y
 				local v = hrp.AssemblyLinearVelocity
 				hrp.AssemblyLinearVelocity = Vector3.new(0, v.Y, 0)
 			end
@@ -2614,25 +2617,18 @@ task.spawn(function()
 		task.wait()
 	end
 end)
--- ===== AUTO CLOSE REWARD GUI =====
 task.spawn(function()
 	while task.wait(0.5) do
-		pcall(function()
-			local hud = LocalPlayer.PlayerGui:FindFirstChild("HUD")
-			if not hud or not hud:FindFirstChild("Main") then return end
-
-			local closeList = {
-				{_G.Auto_Dungeon, "Frame_DungeonItem"},
-				{_G.AutoRaidRunning, "Frame_RaidbossItem"}
-			}
-
-			for _, entry in ipairs(closeList) do
-				if entry[1] then
-					local fd = hud.Main:FindFirstChild(entry[2])
+		if _G.Auto_Dungeon then
+			pcall(function()
+				local hud = LocalPlayer.PlayerGui:FindFirstChild("HUD")
+				if hud and hud:FindFirstChild("Main") then
+					local fd = hud.Main:FindFirstChild("Frame_DungeonItem")
 					if fd and fd.Visible then
-						task.wait(2)  -- Đợi 2s cho user xem
+						-- Đợi 2s cho user xem thưởng
+						task.wait(2)
+						-- Đóng GUI
 						local closeBtn = fd:FindFirstChild("Close_")
-							or fd:FindFirstChild("Close")
 						if closeBtn then
 							if firesignal then
 								firesignal(closeBtn.MouseButton1Click)
@@ -2642,11 +2638,54 @@ task.spawn(function()
 						else
 							fd.Visible = false
 						end
-						print("[AutoClose] Đã đóng:", entry[2])
+						print("[AutoDungeon] Đã đóng GUI nhận thưởng")
 					end
 				end
-			end
-		end)
+			end)
+		end
+	end
+end)
+-- ===== AUTO CLOSE RAID REWARD GUI =====
+task.spawn(function()
+	while task.wait(0.5) do
+		if _G.AutoRaidRunning then
+			pcall(function()
+				local playerGui = LocalPlayer.PlayerGui
+				
+				-- Tìm GUI nhận thưởng Raid
+				local rewardGui = playerGui:FindFirstChild("RaidReward")
+					or playerGui:FindFirstChild("BossReward")
+				
+				-- Trong HUD.Main
+				local hud = playerGui:FindFirstChild("HUD")
+				if hud and hud:FindFirstChild("Main") then
+					local main = hud.Main
+					for _, guiName in ipairs({"Frame_RaidReward", "Frame_BossReward", "Frame_Reward"}) do
+						local gui = main:FindFirstChild(guiName)
+						if gui and gui.Visible then
+							for _, child in pairs(gui:GetDescendants()) do
+								if child:IsA("TextButton") or child:IsA("ImageButton") then
+									local txt = ""
+									pcall(function() txt = child.Text or "" end)
+									if txt:lower():find("claim") or txt:lower():find("receive") or txt:lower():find("ok") then
+										pcall(function()
+											if firesignal then
+												firesignal(child.MouseButton1Click)
+											else
+												child:Activate()
+											end
+										end)
+										task.wait(0.5)
+										gui.Visible = false
+										break
+									end
+								end
+							end
+						end
+					end
+				end
+			end)
+		end
 	end
 end)
 MySaveManager:BuildConfigTab(ConfigTab)
@@ -2784,20 +2823,23 @@ LocalPlayer.Idled:Connect(function()
 end)
 
 local Library = loadstring(game:HttpGet(
-	"https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/GUI.lua"
+	"https://raw.githubusercontent.com/znesr99/gui/refs/heads/main/MarvenRizLib.lua"
 ))()
 
 local Window = Library:CreateWindow({
-    Title = "MarvenRiz Hub",
-    Subtitle = "Map : Rock Fruit",
-    Size = UDim2.fromOffset(600, 450),  -- Đổi từ 500x370 → 600x450
-    AccentColor = Color3.fromRGB(220, 220, 225),  -- Trắng nhạt
-    SideBarWidth = 120,
-    SphereText = false,
-    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/Dinh-Tien-Du.jpg",  -- Ảnh hồ điệp
-    SphereIconSize = 38,
-    Map = "RockFruit"
+	Title = "MarvenRiz Hub",
+	Subtitle = "Map : Rock Fruit",
+	Size = UDim2.fromOffset(500,370),
+	AccentColor = Color3.fromRGB(50,150,255),
+	SideBarWidth = 120,
+	Logo = "rbxassetid://87526284179554",
+	LogoSize = 32,
+	SphereText = false,
+	SphereImage = "rbxassetid://87526284179554",
+	SphereIconSize = 38,
+	Map = "RockFruit"
 })
+
 local MySaveManager = Library.SaveManager
 
 local Tab1 = Window:CreateTab("Settings",true,false)
