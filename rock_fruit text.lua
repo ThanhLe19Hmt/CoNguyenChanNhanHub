@@ -2823,7 +2823,7 @@ LocalPlayer.Idled:Connect(function()
 end)
 
 local Library = loadstring(game:HttpGet(
-	"https://raw.githubusercontent.com/znesr99/gui/refs/heads/main/MarvenRizLib.lua"
+	"https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/GUI.lua"
 ))()
 
 local Window = Library:CreateWindow({
