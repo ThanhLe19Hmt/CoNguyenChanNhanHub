@@ -371,13 +371,11 @@ end)
 local Window = Library:CreateWindow({
     Title = "MarvenRiz Hub",
     Subtitle = "Map : Rock Fruit",
-    Size = UDim2.fromOffset(500, 370),
-    AccentColor = Color3.fromRGB(230, 230, 230),
+    Size = UDim2.fromOffset(600, 450),  -- Đổi từ 500x370 → 600x450
+    AccentColor = Color3.fromRGB(220, 220, 225),  -- Trắng nhạt
     SideBarWidth = 120,
-    Logo = "rbxassetid://87526284179554",
-    LogoSize = 32,
     SphereText = false,
-    SphereImage = "rbxassetid://87526284179554",
+    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/Dinh-Tien-Du.jpg",  -- Ảnh hồ điệp
     SphereIconSize = 38,
     Map = "RockFruit"
 })
@@ -2827,17 +2825,15 @@ local Library = loadstring(game:HttpGet(
 ))()
 
 local Window = Library:CreateWindow({
-	Title = "MarvenRiz Hub",
-	Subtitle = "Map : Rock Fruit",
-	Size = UDim2.fromOffset(500,370),
-	AccentColor = Color3.fromRGB(230, 230, 230),
-	SideBarWidth = 120,
-	Logo = "rbxassetid://87526284179554",
-	LogoSize = 32,
-	SphereText = false,
-	SphereImage = "rbxassetid://87526284179554",
-	SphereIconSize = 38,
-	Map = "RockFruit"
+    Title = "MarvenRiz Hub",
+    Subtitle = "Map : Rock Fruit",
+    Size = UDim2.fromOffset(600, 450),  -- Đổi từ 500x370 → 600x450
+    AccentColor = Color3.fromRGB(220, 220, 225),  -- Trắng nhạt
+    SideBarWidth = 120,
+    SphereText = false,
+    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/Dinh-Tien-Du.jpg",  -- Ảnh hồ điệp
+    SphereIconSize = 38,
+    Map = "RockFruit"
 })
 
 local MySaveManager = Library.SaveManager
