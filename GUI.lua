@@ -132,7 +132,7 @@ local function MakeDraggable(topbar, object)
     end)
 end
 
-local AccentColor = Color3.fromRGB(230, 230, 230)
+local AccentColor = Color3.fromRGB(220, 220, 225)
 local BackgroundColor = Color3.fromRGB(18, 18, 20)
 local CardColor = Color3.fromRGB(24, 24, 27)
 local HoverColor = Color3.fromRGB(35, 35, 40)
@@ -542,7 +542,7 @@ function Library:CreateWindow(options)
     Create("UIStroke", {Parent = MainFrame, Color = Color3.fromRGB(40, 40, 45), Thickness = 1})
 	MainOverlay.Active = false
     Tween(MainScale, {Scale = 1}, 0.5)
-    Tween(MainFrame, {BackgroundTransparency = 0}, 0.5)
+    Tween(MainFrame, {BackgroundTransparency = 1}, 0.5)
 
     local BottomDragHitbox = Create("Frame", {
         Parent = ScreenGui,
