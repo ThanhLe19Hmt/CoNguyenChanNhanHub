@@ -519,6 +519,17 @@ function Library:CreateWindow(options)
     local MainFrame = Create("Frame", {Parent = ScreenGui, BackgroundColor3 = BackgroundColor, Size = windowSize, Position = UDim2.new(0.5, 0, 0.5, 0), AnchorPoint = Vector2.new(0.5, 0.5), ClipsDescendants = true, BackgroundTransparency = 1, Active = true})
     local MainScale = Create("UIScale", {Parent = MainFrame, Scale = 0.8})
     Create("UICorner", {Parent = MainFrame, CornerRadius = UDim.new(0, 8)})
+    local MainBgImage = Create("ImageLabel", {
+    Parent = MainFrame,
+    BackgroundTransparency = 1,
+    Size = UDim2.new(1, 0, 1, 0),
+    Position = UDim2.new(0, 0, 0, 0),
+    Image = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/Co-Nguyet-Phuong-Nguyen.jpg",
+    ImageTransparency = 0.7,
+    ScaleType = Enum.ScaleType.Crop,
+    ZIndex = 0
+})
+    Create("UICorner", {Parent = MainBgImage, CornerRadius = UDim.new(0, 8)})
     Create("UIStroke", {Parent = MainFrame, Color = Color3.fromRGB(40, 40, 45), Thickness = 1})
     Tween(MainScale, {Scale = 1}, 0.5)
     Tween(MainFrame, {BackgroundTransparency = 0}, 0.5)
