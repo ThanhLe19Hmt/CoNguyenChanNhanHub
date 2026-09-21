@@ -357,7 +357,7 @@ LocalPlayer.Idled:Connect(function()
 	VirtualUser:CaptureController()
 	VirtualUser:ClickButton2(Vector2.new())
 end)
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/znesr99/gui/refs/heads/main/MarvenRizLib.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/GUI.lua"))()
 local MySaveManager = Library.SaveManager
 -- ===== DEBUG START =====
 task.spawn(function()
@@ -375,7 +375,7 @@ llocal Window = Library:CreateWindow({
     AccentColor = Color3.fromRGB(220, 220, 225),  -- Trắng nhạt
     SideBarWidth = 120,
     SphereText = false,
-    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/C-Nguy-t-Ph-ng-Nguy-n/main/Dinh-Tien-Du.jpg",  -- Ảnh hồ điệp
+    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/main/Dinh-Tien-Du.jpg",  -- Ảnh hồ điệp
     SphereIconSize = 38,
     Map = "RockFruit"
 })
@@ -2784,7 +2784,7 @@ LocalPlayer.Idled:Connect(function()
 end)
 
 local Library = loadstring(game:HttpGet(
-	"https://raw.githubusercontent.com/znesr99/gui/refs/heads/main/MarvenRizLib.lua"
+	"https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/GUI.lua"
 ))()
 
 local Window = Library:CreateWindow({
@@ -2794,7 +2794,7 @@ local Window = Library:CreateWindow({
     AccentColor = Color3.fromRGB(220, 220, 225),  -- Trắng nhạt
     SideBarWidth = 120,
     SphereText = false,
-    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/C-Nguy-t-Ph-ng-Nguy-n/main/Dinh-Tien-Du.jpg",  -- Ảnh hồ điệp
+    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/main/Dinh-Tien-Du.jpg",  -- Ảnh hồ điệp
     SphereIconSize = 38,
     Map = "RockFruit"
 })
