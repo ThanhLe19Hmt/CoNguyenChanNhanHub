@@ -371,11 +371,11 @@ end)
 local Window = Library:CreateWindow({
     Title = "MarvenRiz Hub",
     Subtitle = "Map : Rock Fruit",
-    Size = UDim2.fromOffset(600, 450),  -- Đổi từ 500x370 → 600x450
+    Size = UDim2.fromOffset(500, 370),  -- Đổi từ 500x370 → 600x450
     AccentColor = Color3.fromRGB(220, 220, 225),  -- Trắng nhạt
     SideBarWidth = 120,
     SphereText = false,
-    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/Dinh-Tien-Du.jpg",  -- Ảnh hồ điệp
+    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/main/Dinh-Tien-Du.jpg",
     SphereIconSize = 38,
     Map = "RockFruit"
 })
@@ -2827,11 +2827,11 @@ local Library = loadstring(game:HttpGet(
 local Window = Library:CreateWindow({
     Title = "MarvenRiz Hub",
     Subtitle = "Map : Rock Fruit",
-    Size = UDim2.fromOffset(600, 450),  -- Đổi từ 500x370 → 600x450
+    Size = UDim2.fromOffset(500, 370),  -- Đổi từ 500x370 → 600x450
     AccentColor = Color3.fromRGB(220, 220, 225),  -- Trắng nhạt
     SideBarWidth = 120,
     SphereText = false,
-    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/Dinh-Tien-Du.jpg",  -- Ảnh hồ điệp
+    SphereImage = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/main/Dinh-Tien-Du.jpg",
     SphereIconSize = 38,
     Map = "RockFruit"
 })
