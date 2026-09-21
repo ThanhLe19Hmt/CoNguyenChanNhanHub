@@ -524,7 +524,7 @@ function Library:CreateWindow(options)
     BackgroundTransparency = 1,
     Size = UDim2.new(1, 0, 1, 0),
     Position = UDim2.new(0, 0, 0, 0),
-    Image = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/Co-Nguyet-Phuong-Nguyen.jpg",
+    Image = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/main/Co-Nguyet-Phuong-Nguyen.jpg",
     ImageTransparency = 0.7,
     ScaleType = Enum.ScaleType.Crop,
     ZIndex = 0
