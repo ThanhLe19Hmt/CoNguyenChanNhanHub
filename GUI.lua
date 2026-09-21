@@ -132,7 +132,7 @@ local function MakeDraggable(topbar, object)
     end)
 end
 
-local AccentColor = Color3.fromRGB(40, 40, 40)
+local AccentColor = Color3.fromRGB(230, 230, 230)
 local BackgroundColor = Color3.fromRGB(18, 18, 20)
 local CardColor = Color3.fromRGB(24, 24, 27)
 local HoverColor = Color3.fromRGB(35, 35, 40)
@@ -594,7 +594,7 @@ function Library:CreateWindow(options)
         end
     end)
 
-    local TopBar = Create("Frame", {Parent = MainFrame, BackgroundColor3 = BackgroundColor, BackgroundTransparency = 1, Size = UDim2.new(1, 0, 0, 40), Position = UDim2.new(0, 0, 0, 0), Active = true})
+    local TopBar = Create("Frame", {Parent = MainFrame, BackgroundColor3 = BackgroundColor, BackgroundTransparency = 1, Size = UDim2.new(1, 0, 0, 40), Position = UDim2.new(0, 0, 0, 0), Active = true, ZIndex = 2})
     MakeDraggable(TopBar, MainFrame)
     
     local titleOffsetX = 15
@@ -622,7 +622,7 @@ function Library:CreateWindow(options)
     local CloseBtn = Create("TextButton", {Parent = TopBar, Text = "X", Font = Enum.Font.GothamBold, TextSize = 14, TextColor3 = SubTextColor, BackgroundTransparency = 1, Size = UDim2.new(0, 30, 1, 0), Position = UDim2.new(1, -35, 0, 0)})
     local MinBtn = Create("TextButton", {Parent = TopBar, Text = "—", Font = Enum.Font.GothamBold, TextSize = 14, TextColor3 = SubTextColor, BackgroundTransparency = 1, Size = UDim2.new(0, 30, 1, 0), Position = UDim2.new(1, -65, 0, 0)})
 
-    local Sidebar = Create("Frame", {Parent = MainFrame, BackgroundColor3 = BackgroundColor, BackgroundTransparency = 1, Size = UDim2.new(0, sideBarWidth, 1, -40), Position = UDim2.new(0, 0, 0, 40), Active = true})
+    local Sidebar = Create("Frame", {Parent = MainFrame, BackgroundColor3 = BackgroundColor, BackgroundTransparency = 1, Size = UDim2.new(0, sideBarWidth, 1, -40), Position = UDim2.new(0, 0, 0, 40), Active = true, ZIndex = 2})
     local TabSearchBox = Create("TextBox", {Parent = Sidebar, BackgroundColor3 = CardColor, Size = UDim2.new(1, -20, 0, 26), Position = UDim2.new(0, 10, 0, 5), Font = Enum.Font.Gotham, TextSize = 12, TextColor3 = TextColor, PlaceholderText = "Search tabs...", TextXAlignment = Enum.TextXAlignment.Left, ClearTextOnFocus = false})
     Create("UIPadding", {Parent = TabSearchBox, PaddingLeft = UDim.new(0, 8)})
     Create("UICorner", {Parent = TabSearchBox, CornerRadius = UDim.new(0, 4)})
@@ -632,7 +632,7 @@ function Library:CreateWindow(options)
     Create("UIListLayout", {Parent = TabContainer, SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 5)})
     local Divider = Create("Frame", {Parent = MainFrame, BackgroundColor3 = Color3.fromRGB(40, 40, 45), BorderSizePixel = 0, Size = UDim2.new(0, 1, 1, -40), Position = UDim2.new(0, sideBarWidth, 0, 40)})
 
-    local ContentArea = Create("Frame", {Parent = MainFrame, BackgroundTransparency = 1, Size = UDim2.new(1, -(sideBarWidth + 5), 1, -40), Position = UDim2.new(0, sideBarWidth + 5, 0, 40), Active = true})
+    local ContentArea = Create("Frame", {Parent = MainFrame, BackgroundTransparency = 1, Size = UDim2.new(1, -(sideBarWidth + 5), 1, -40), Position = UDim2.new(0, sideBarWidth + 5, 0, 40), Active = true, ZIndex = 2})
 
     local Sphere = Create("ImageButton", {
     Parent = ScreenGui,
