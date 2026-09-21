@@ -516,40 +516,38 @@ function Library:CreateWindow(options)
         Btn.MouseButton1Click:Connect(function() OpenInfoWindow(data) end)
     end
 
-    local MainFrame = Create("Frame", {Parent = ScreenGui, BackgroundColor3 = BackgroundColor, Size = windowSize, Position = UDim2.new(0.5, 0, 0.5, 0), AnchorPoint = Vector2.new(0.5, 0.5), ClipsDescendants = true, BackgroundTransparency = 1, Active = true})
-local MainScale = Create("UIScale", {Parent = MainFrame, Scale = 0.8})
-Create("UICorner", {Parent = MainFrame, CornerRadius = UDim.new(0, 8)})
+        local MainFrame = Create("Frame", {Parent = ScreenGui, BackgroundColor3 = BackgroundColor, Size = windowSize, Position = UDim2.new(0.5, 0, 0.5, 0), AnchorPoint = Vector2.new(0.5, 0.5), ClipsDescendants = true, BackgroundTransparency = 0, Active = true})
+    local MainScale = Create("UIScale", {Parent = MainFrame, Scale = 0.8})
+    Create("UICorner", {Parent = MainFrame, CornerRadius = UDim.new(0, 8)})
 
--- Ảnh nền menu
-local MainBgImage = Create("ImageLabel", {
-    Parent = MainFrame,
-    BackgroundTransparency = 1,
-    Size = UDim2.new(1, 0, 1, 0),
-    Position = UDim2.new(0, 0, 0, 0),
-    Image = "https://raw.githubusercontent.com/ThanhLe19Hmt/C-Nguy-t-Ph-ng-Nguy-n/main/Co-Nguyet-Phuong-Nguyen.jpg",
-    ImageTransparency = 0.6,
-    ScaleType = Enum.ScaleType.Crop,
-    ZIndex = 0
-})
-Create("UICorner", {Parent = MainBgImage, CornerRadius = UDim.new(0, 8)})
+    -- Ảnh nền menu
+    local MainBgImage = Create("ImageLabel", {
+        Parent = MainFrame,
+        BackgroundTransparency = 1,
+        Size = UDim2.new(1, 0, 1, 0),
+        Position = UDim2.new(0, 0, 0, 0),
+        Image = "https://raw.githubusercontent.com/ThanhLe19Hmt/C-Nguy-t-Ph-ng-Nguy-n/main/Co-Nguyet-Phuong-Nguyen.jpg",
+        ImageTransparency = 0.6,
+        ScaleType = Enum.ScaleType.Crop,
+        ZIndex = 0
+    })
+    Create("UICorner", {Parent = MainBgImage, CornerRadius = UDim.new(0, 8)})
 
--- Overlay đen mờ
-local MainOverlay = Create("Frame", {
-    Parent = MainFrame,
-    BackgroundColor3 = Color3.fromRGB(10, 10, 15),
-    BackgroundTransparency = 0.4,
-    Size = UDim2.new(1, 0, 1, 0),
-    Position = UDim2.new(0, 0, 0, 0),
-    ZIndex = 1,
-    Active = false
-})
-Create("UICorner", {Parent = MainOverlay, CornerRadius = UDim.new(0, 8)})
+    -- Overlay đen mờ
+    local MainOverlay = Create("Frame", {
+        Parent = MainFrame,
+        BackgroundColor3 = Color3.fromRGB(10, 10, 15),
+        BackgroundTransparency = 0.4,
+        Size = UDim2.new(1, 0, 1, 0),
+        Position = UDim2.new(0, 0, 0, 0),
+        ZIndex = 1,
+        Active = false
+    })
+    Create("UICorner", {Parent = MainOverlay, CornerRadius = UDim.new(0, 8)})
 
-Create("UIStroke", {Parent = MainFrame, Color = Color3.fromRGB(60, 60, 70), Thickness = 1.5, ZIndex = 10})
-Tween(MainScale, {Scale = 1}, 0.5)
-Tween(MainFrame, {BackgroundTransparency = 1}, 0.5)
-
-MainOverlay.Active = false
+    Create("UIStroke", {Parent = MainFrame, Color = Color3.fromRGB(60, 60, 70), Thickness = 1.5, ZIndex = 10})
+    Tween(MainScale, {Scale = 1}, 0.5)
+    Tween(MainFrame, {BackgroundTransparency = 0}, 0.5)
 
     local BottomDragHitbox = Create("Frame", {
         Parent = ScreenGui,
@@ -641,7 +639,23 @@ MainOverlay.Active = false
 
     local ContentArea = Create("Frame", {Parent = MainFrame, BackgroundTransparency = 1, Size = UDim2.new(1, -(sideBarWidth + 5), 1, -40), Position = UDim2.new(0, sideBarWidth + 5, 0, 40), Active = true, ZIndex = 2})
 
-    local Sphere = Create("ImageButton", {Parent = ScreenGui, BackgroundColor3 = BackgroundColor, BackgroundTransparency = 1, Size = UDim2.new(0, 60, 0, 60), Position = UDim2.new(1, -80, 0, 20), AnchorPoint = Vector2.new(0, 0), Visible = false, AutoButtonColor = false, Image = "https://raw.githubusercontent.com/ThanhLe19Hmt/C-Nguy-t-Ph-ng-Nguy-n/main/Dinh-Tien-Du.jpg", ImageTransparency = 1, ClipsDescendants = true, ScaleType = Enum.ScaleType.Crop}) Create("UICorner", {Parent = Sphere, CornerRadius = UDim.new(0, 30)}) Create("UIStroke", {Parent = Sphere, Color = Color3.fromRGB(255, 255, 255), Thickness = 2, Transparency = 0.3}) AddBounce(Sphere, 0.92)
+        local Sphere = Create("ImageButton", {
+        Parent = ScreenGui,
+        BackgroundColor3 = BackgroundColor,
+        BackgroundTransparency = 1,
+        Size = UDim2.new(0, 60, 0, 60),
+        Position = UDim2.new(1, -80, 0, 20),
+        AnchorPoint = Vector2.new(0, 0),
+        Visible = false,
+        AutoButtonColor = false,
+        Image = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/main/Dinh-Tien-Du.jpg",
+        ImageTransparency = 1,
+        ClipsDescendants = true,
+        ScaleType = Enum.ScaleType.Crop
+    })
+    Create("UICorner", {Parent = Sphere, CornerRadius = UDim.new(0, 30)})
+    Create("UIStroke", {Parent = Sphere, Color = Color3.fromRGB(255, 255, 255), Thickness = 2, Transparency = 0.3})
+    AddBounce(Sphere, 0.92)
     MakeDraggable(Sphere, Sphere)
 
     local Window = {CurrentTab = nil, Tabs = {}, Title = Title, AllCards = {}, MainFrame = MainFrame, CurrentTransparency = 0, ConfigElements = {}, MapId = options and (type(options) == "table") and (options.Map or options.MapId) or nil}
@@ -672,7 +686,7 @@ MainOverlay.Active = false
         Tween(Sphere, {ImageTransparency = 0}, 0.4)
     end)
 
-        Sphere.MouseButton1Click:Connect(function()
+    Sphere.MouseButton1Click:Connect(function()
         Tween(Sphere, {Size = UDim2.new(0, 0, 0, 0)}, 0.3)
         Tween(Sphere, {ImageTransparency = 1}, 0.3)
     
