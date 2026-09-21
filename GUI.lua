@@ -656,14 +656,8 @@ function Library:CreateWindow(options)
         MainFrame.Visible = false
         BottomDragHitbox.Visible = false
         Sphere.Visible = true
-        Tween(Sphere, {Size = UDim2.new(0, 50, 0, 50)}, 0.4)
-        
-       
-        if not sphTextToggle and sphImage then
-            Tween(SphereImageLabel, {ImageTransparency = 0}, 0.4)
-        elseif sphTextToggle then
-            Tween(SphereTextLabel, {TextTransparency = 0}, 0.4)
-        end
+        Tween(Sphere, {Size = UDim2.new(0, 60, 0, 60)}, 0.4)
+        Tween(Sphere, {ImageTransparency = 0}, 0.4)
     end)
 
     Sphere.MouseButton1Click:Connect(function()
