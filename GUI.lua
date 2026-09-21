@@ -530,7 +530,17 @@ function Library:CreateWindow(options)
     ZIndex = 0
 })
     Create("UICorner", {Parent = MainBgImage, CornerRadius = UDim.new(0, 8)})
+    local MainOverlay = Create("Frame", {
+    Parent = MainFrame,
+    BackgroundColor3 = Color3.fromRGB(10, 10, 15),
+    BackgroundTransparency = 0.5,
+    Size = UDim2.new(1, 0, 1, 0),
+    Position = UDim2.new(0, 0, 0, 0),
+    ZIndex = 1
+})
+    Create("UICorner", {Parent = MainOverlay, CornerRadius = UDim.new(0, 8)})
     Create("UIStroke", {Parent = MainFrame, Color = Color3.fromRGB(40, 40, 45), Thickness = 1})
+	MainOverlay.Active = false
     Tween(MainScale, {Scale = 1}, 0.5)
     Tween(MainFrame, {BackgroundTransparency = 0}, 0.5)
 
