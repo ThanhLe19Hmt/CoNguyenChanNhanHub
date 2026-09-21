@@ -643,7 +643,7 @@ function Library:CreateWindow(options)
     AnchorPoint = Vector2.new(0, 0),
     Visible = false,
     AutoButtonColor = false,
-    Image = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/Dinh-Tien-Du.jpg",
+    Image = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/main/Dinh-Tien-Du.jpg",
     ImageTransparency = 1,
     ClipsDescendants = true,
     ScaleType = Enum.ScaleType.Crop
