@@ -132,7 +132,7 @@ local function MakeDraggable(topbar, object)
     end)
 end
 
-local AccentColor = Color3.fromRGB(230, 230, 230)
+local AccentColor = Color3.fromRGB(40, 40, 40)
 local BackgroundColor = Color3.fromRGB(18, 18, 20)
 local CardColor = Color3.fromRGB(24, 24, 27)
 local HoverColor = Color3.fromRGB(35, 35, 40)
@@ -516,36 +516,10 @@ function Library:CreateWindow(options)
         Btn.MouseButton1Click:Connect(function() OpenInfoWindow(data) end)
     end
 
-        local MainFrame = Create("Frame", {Parent = ScreenGui, BackgroundColor3 = BackgroundColor, Size = windowSize, Position = UDim2.new(0.5, 0, 0.5, 0), AnchorPoint = Vector2.new(0.5, 0.5), ClipsDescendants = true, BackgroundTransparency = 0, Active = true})
+    local MainFrame = Create("Frame", {Parent = ScreenGui, BackgroundColor3 = BackgroundColor, Size = windowSize, Position = UDim2.new(0.5, 0, 0.5, 0), AnchorPoint = Vector2.new(0.5, 0.5), ClipsDescendants = true, BackgroundTransparency = 1, Active = true})
     local MainScale = Create("UIScale", {Parent = MainFrame, Scale = 0.8})
     Create("UICorner", {Parent = MainFrame, CornerRadius = UDim.new(0, 8)})
-
-    -- Ảnh nền menu
-    local MainBgImage = Create("ImageLabel", {
-        Parent = MainFrame,
-        BackgroundTransparency = 1,
-        Size = UDim2.new(1, 0, 1, 0),
-        Position = UDim2.new(0, 0, 0, 0),
-        Image = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/Co-Nguyet-Phuong-Nguyen.jpg",
-        ImageTransparency = 0.6,
-        ScaleType = Enum.ScaleType.Crop,
-        ZIndex = 0
-    })
-    Create("UICorner", {Parent = MainBgImage, CornerRadius = UDim.new(0, 8)})
-
-    -- Overlay đen mờ
-    local MainOverlay = Create("Frame", {
-        Parent = MainFrame,
-        BackgroundColor3 = Color3.fromRGB(10, 10, 15),
-        BackgroundTransparency = 0.4,
-        Size = UDim2.new(1, 0, 1, 0),
-        Position = UDim2.new(0, 0, 0, 0),
-        ZIndex = 1,
-        Active = false
-    })
-    Create("UICorner", {Parent = MainOverlay, CornerRadius = UDim.new(0, 8)})
-
-    Create("UIStroke", {Parent = MainFrame, Color = Color3.fromRGB(60, 60, 70), Thickness = 1.5, ZIndex = 10})
+    Create("UIStroke", {Parent = MainFrame, Color = Color3.fromRGB(40, 40, 45), Thickness = 1})
     Tween(MainScale, {Scale = 1}, 0.5)
     Tween(MainFrame, {BackgroundTransparency = 0}, 0.5)
 
@@ -599,7 +573,7 @@ function Library:CreateWindow(options)
         end
     end)
 
-    local TopBar = Create("Frame", {Parent = MainFrame, BackgroundColor3 = BackgroundColor, BackgroundTransparency = 1, Size = UDim2.new(1, 0, 0, 40), Position = UDim2.new(0, 0, 0, 0), Active = true, ZIndex = 2})
+    local TopBar = Create("Frame", {Parent = MainFrame, BackgroundColor3 = BackgroundColor, BackgroundTransparency = 1, Size = UDim2.new(1, 0, 0, 40), Position = UDim2.new(0, 0, 0, 0), Active = true})
     MakeDraggable(TopBar, MainFrame)
     
     local titleOffsetX = 15
@@ -627,7 +601,7 @@ function Library:CreateWindow(options)
     local CloseBtn = Create("TextButton", {Parent = TopBar, Text = "X", Font = Enum.Font.GothamBold, TextSize = 14, TextColor3 = SubTextColor, BackgroundTransparency = 1, Size = UDim2.new(0, 30, 1, 0), Position = UDim2.new(1, -35, 0, 0)})
     local MinBtn = Create("TextButton", {Parent = TopBar, Text = "—", Font = Enum.Font.GothamBold, TextSize = 14, TextColor3 = SubTextColor, BackgroundTransparency = 1, Size = UDim2.new(0, 30, 1, 0), Position = UDim2.new(1, -65, 0, 0)})
 
-    local Sidebar = Create("Frame", {Parent = MainFrame, BackgroundColor3 = BackgroundColor, BackgroundTransparency = 1, Size = UDim2.new(0, sideBarWidth, 1, -40), Position = UDim2.new(0, 0, 0, 40), Active = true, ZIndex = 2})
+    local Sidebar = Create("Frame", {Parent = MainFrame, BackgroundColor3 = BackgroundColor, BackgroundTransparency = 1, Size = UDim2.new(0, sideBarWidth, 1, -40), Position = UDim2.new(0, 0, 0, 40), Active = true})
     local TabSearchBox = Create("TextBox", {Parent = Sidebar, BackgroundColor3 = CardColor, Size = UDim2.new(1, -20, 0, 26), Position = UDim2.new(0, 10, 0, 5), Font = Enum.Font.Gotham, TextSize = 12, TextColor3 = TextColor, PlaceholderText = "Search tabs...", TextXAlignment = Enum.TextXAlignment.Left, ClearTextOnFocus = false})
     Create("UIPadding", {Parent = TabSearchBox, PaddingLeft = UDim.new(0, 8)})
     Create("UICorner", {Parent = TabSearchBox, CornerRadius = UDim.new(0, 4)})
@@ -637,22 +611,22 @@ function Library:CreateWindow(options)
     Create("UIListLayout", {Parent = TabContainer, SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 5)})
     local Divider = Create("Frame", {Parent = MainFrame, BackgroundColor3 = Color3.fromRGB(40, 40, 45), BorderSizePixel = 0, Size = UDim2.new(0, 1, 1, -40), Position = UDim2.new(0, sideBarWidth, 0, 40)})
 
-    local ContentArea = Create("Frame", {Parent = MainFrame, BackgroundTransparency = 1, Size = UDim2.new(1, -(sideBarWidth + 5), 1, -40), Position = UDim2.new(0, sideBarWidth + 5, 0, 40), Active = true, ZIndex = 2})
+    local ContentArea = Create("Frame", {Parent = MainFrame, BackgroundTransparency = 1, Size = UDim2.new(1, -(sideBarWidth + 5), 1, -40), Position = UDim2.new(0, sideBarWidth + 5, 0, 40), Active = true})
 
-        local Sphere = Create("ImageButton", {
-        Parent = ScreenGui,
-        BackgroundColor3 = BackgroundColor,
-        BackgroundTransparency = 1,
-        Size = UDim2.new(0, 60, 0, 60),
-        Position = UDim2.new(1, -80, 0, 20),
-        AnchorPoint = Vector2.new(0, 0),
-        Visible = false,
-        AutoButtonColor = false,
-        Image = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/Dinh-Tien-Du.jpg",
-        ImageTransparency = 1,
-        ClipsDescendants = true,
-        ScaleType = Enum.ScaleType.Crop
-    })
+    local Sphere = Create("ImageButton", {
+    Parent = ScreenGui,
+    BackgroundColor3 = BackgroundColor,
+    BackgroundTransparency = 1,
+    Size = UDim2.new(0, 60, 0, 60),
+    Position = UDim2.new(1, -80, 0, 20),  -- Góc trên phải
+    AnchorPoint = Vector2.new(0, 0),
+    Visible = false,
+    AutoButtonColor = false,
+    Image = "https://raw.githubusercontent.com/ThanhLe19Hmt/CoNguyenChanNhanHub/refs/heads/main/Dinh-Tien-Du.jpg",
+    ImageTransparency = 1,
+    ClipsDescendants = true,
+    ScaleType = Enum.ScaleType.Crop
+})
     Create("UICorner", {Parent = Sphere, CornerRadius = UDim.new(0, 30)})
     Create("UIStroke", {Parent = Sphere, Color = Color3.fromRGB(255, 255, 255), Thickness = 2, Transparency = 0.3})
     AddBounce(Sphere, 0.92)
@@ -682,14 +656,22 @@ function Library:CreateWindow(options)
         MainFrame.Visible = false
         BottomDragHitbox.Visible = false
         Sphere.Visible = true
-        Tween(Sphere, {Size = UDim2.new(0, 60, 0, 60)}, 0.4)
-        Tween(Sphere, {ImageTransparency = 0}, 0.4)
+        Tween(Sphere, {Size = UDim2.new(0, 50, 0, 50)}, 0.4)
+        
+       
+        if not sphTextToggle and sphImage then
+            Tween(SphereImageLabel, {ImageTransparency = 0}, 0.4)
+        elseif sphTextToggle then
+            Tween(SphereTextLabel, {TextTransparency = 0}, 0.4)
+        end
     end)
 
     Sphere.MouseButton1Click:Connect(function()
         Tween(Sphere, {Size = UDim2.new(0, 0, 0, 0)}, 0.3)
-        Tween(Sphere, {ImageTransparency = 1}, 0.3)
-    
+        
+        if not sphTextToggle and sphImage then Tween(SphereImageLabel, {ImageTransparency = 1}, 0.3) end
+        if sphTextToggle then Tween(SphereTextLabel, {TextTransparency = 1}, 0.3) end
+        
         task.wait(0.2)
         Sphere.Visible = false
         MainFrame.Visible = true
